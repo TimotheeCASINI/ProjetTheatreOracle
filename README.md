@@ -9,7 +9,23 @@ Ce projet à pour but de mettre en oeuvre les notions vu lors des TP et des CM t
 
 Nous avons choisis d'utiliser le SGBD `Live Oracle` car il s'accorde avec les fonctionnalités que nous devons implémenter
 
-
+Contenu des dossier :
+- `infos`: 
+    * `Rapport.pdf` = Le rapport du projet
+    * `Projet.pdf` = Le sujet du projet
+    
+- `graphs`:
+    * `Projet.mdj` = E/R Diagramme (StartUML)
+    * `MCD.mcd` = MCD (Jmerise)
+    * `MLD.mcd` = MLD (Jmerise)
+    * `Diagrammes.pdf` = Les diagrammes liées au projet
+    
+- `scripts`:
+    * `creation.sql` = Création de la base de donnée
+    * `triggers.sql` = Ensembles des triggers, fonction et procédures pour les fonctionnalités de la BDD
+    * `insertions.sql` = Insertion des instances de la base de données
+    * `test.sql` = Réalisation de divers test pour vérifier les fonctionnalités
+     
 #### Objectifs
 
 L'objectif de ce projet est de simuler une base de données de gestion de troupes de théâtres.
@@ -17,7 +33,7 @@ L'objectif de ce projet est de simuler une base de données de gestion de troupe
 Nous allons créer la base de données, insérer les données et la peupler, puis créer les fonctionnalités nécéssaires à travers différents triggers, fonctions et séléctions.
 
 Le dossier se décompose en 3 dossier :
-* `infos` : contient le sujet, les screens et le rapport du projet
+* `infos` : contient le sujet et le rapport du projet
 * `graphs`: contient les différents graphiques (MCD, MLD, E/R)
 * `scripts` : contient les scripts nécessaire à la réalisation du projet
 
@@ -57,46 +73,3 @@ On trouve ainsi le modèle relationnel suivant :
 - Employe(**id_employe**, nom, type, salaire, *id_troupe*)
 
 - REMUNERER(***id_theatre***, ***id_troupe***, date_paiement, total)
-
-
-### Création des données 
-
-La création des données se fait depuis le fichier `creation.sql` dans le dossier `scripts`
-
-Après avoir créer le modèle relationnel, on créer la base de donné en s'assurant des contraintes de clés, check et unique
-
-- Les couts sont tous supérieur ou égale à 0
-- Contraintes de clés primaires et étrangères
-- Tables en 3ème forme normale
-- Un spectateur ne peut pas acheter plusieurs tiquet pour une même data d'accès
-- Le type d'employé est forcément acteur ou staff
-- Le type de reduction est forcément normal ou réduit
-
-**On créer les 9 tables décrites ci-dessus.**
-
-### Insertion des données
-
-Une fois la BDD créer, on insère les données dans chacune des tables en respectant les contraintes. 
-Les insertions sont disponibles depuis le fichier `insertion.sql` dans le dossier `scripts`.
-
-Certaint triggers et contraintes doivent être ajoutés avant les insertions.
-
-C'est le cas du trigger `Salaires_Shows` qui permet d'initialiser le montant global des salaires dans la table Representation pour une Pièce de Théâtre donnée.
-
-* On s'assure du bon fonctionnement du trigger :
-
-![Trigger Salaires_Shows](infos/images/img1.jpg)
-
-
-* On vérifie l'insertion des données :
-
-![Insertions des données](infos/images/img2.jpg)
-
-![Insertions des données](infos/images/img3.jpg)
-
-![Insertions des données](infos/images/img4.jpg)
-
-
-### Triggers et Queries
-
-
