@@ -1,5 +1,7 @@
 # Projet - Advanced Database - ST2ABD
+
 ## Timothée CASINI & Balthazar RAFFY
+
 
 ### Introduction
 
@@ -9,6 +11,7 @@ Nous avons choisis d'utiliser le SGBD `Live Oracle` car il s'accorde avec les fo
 
 
 #### Objectifs
+
 L'objectif de ce projet est de simuler une base de données de gestion de troupes de théâtres.
 
 Nous allons créer la base de données, insérer les données et la peupler, puis créer les fonctionnalités nécéssaires à travers différents triggers, fonctions et séléctions.
@@ -19,6 +22,7 @@ Le dossier se décompose en 3 dossier :
 * `scripts` : contient les scripts nécessaire à la réalisation du projet
 
 #### Contraintes
+
 Plusieurs contraintes orientent notre conception de la BDD mais certaines notions comme la gestion des dons, les calculs budgétaire, la gestion des tickets ainsi que la mise en place des contraintes de temps sont des choix libres.
 
 Les contraintes sont les suivantes :
@@ -29,4 +33,14 @@ Les contraintes sont les suivantes :
 - Gestion des troupes et des représentations (1 troupe ne peut pas assurer 2 représentation à la fois)
 - Gestion des pièce de théâtre et du théâtre(1 théâtre ne peut pas acceuilir + d'une pièce de théâtre à la fois)
 
+### Création du modèle relationnel
+
+Afin d'élaborder correctement notre BDD, nous allons construire le MCD et le E/R Diagramme puis en déduire le MLD.
+On trouve ainsi le modèle relationnel suivant :
+
+- Troupe(<mark>id_troupe</mark>, nom_troupe, budget, **id_theatre**)
 ### Création des données 
+
+La création des données se fait depuis le fichier `creation.sql` dans le dossier `scripts`
+
+Après avoir créer
