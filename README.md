@@ -204,39 +204,33 @@ On visualise l'insertion des données :
 - `SELECT * FROM Piece_Theatre`
 - `SELECT * FROM Troupe`
 
-![Tables Pièce de Théâtre et Troupe](infos/imgages/img2.jpg)
+![Tables Pièce de Théâtre et Troupe](infos/images/img2.jpg)
 
-<br>
-
-- `SELECT * FROM Piece_Theatre`
-- `SELECT * FROM Troupe`
-
-![Tables Pièce de Théâtre et Troupe](infos/imgages/img2.jpg)
 
 <br>
 
 - `SELECT * FROM Ticket`
 
-![Table Ticket](infos/imgages/img3.jpg)
+![Table Ticket](infos/images/img3.jpg)
 
 <br>
 
 - `SELECT * FROM REMUNERER`
 
-![Table de jonction REMUNERER](infos/imgages/img4.jpg)
+![Table de jonction REMUNERER](infos/images/img4.jpg)
 
 <br>
 
 - `SELECT * FROM Employe`
 
-![Table Employé](infos/imgages/img5.jpg)
+![Table Employé](infos/images/img5.jpg)
 
 <br>
 
 - `SELECT * FROM Spectateur`
 - `SELECT * FROM Dons`
 
-![Tables Spectateur et Dons](infos/imgages/img6.jpg)
+![Tables Spectateur et Dons](infos/images/img6.jpg)
 
 
 
