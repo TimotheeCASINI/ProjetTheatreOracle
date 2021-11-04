@@ -79,6 +79,11 @@ On trouve ainsi le modèle relationnel suivant :
 
 <br>
 
+On visualise l'ensembles des objets de notre base de données :
+
+
+![E/R Diagramme](infos/images/ER.jpg)
+
 ### Création des tables
 
 Le sript de création des tables est disponible dans le dossier *scripts* sous le nom `creation.sql`.
@@ -92,6 +97,13 @@ On créer les 9 tables ci-dessus en veilant à respecter les contraintes de clé
 - Création d'une table de jointure pour la rémunération des troupes
 - Création d'une table de temps pour la simulation du temps
 - Création d'une table temporelle afin de stocker les troupes et l'argent généré pour un jour donné
+
+<br>
+
+On visualise l'ensembles des objets de notre base de données :
+
+
+![Tables et Procédure du schéma](infos/images/img_obj.jpg)
 
 <br>
 
