@@ -82,7 +82,7 @@ On trouve ainsi le modèle relationnel suivant :
 On visualise l'ensembles des objets de notre base de données :
 
 
-![E/R Diagramme](infos/images/ER.jpg)
+![E/R Diagramme](infos/images/ER.png)
 
 ### Création des tables
 
@@ -103,7 +103,7 @@ On créer les 9 tables ci-dessus en veilant à respecter les contraintes de clé
 On visualise l'ensembles des objets de notre base de données :
 
 
-![Tables et Procédure du schéma](infos/images/img_obj.jpg)
+![Tables et Procédure du schéma](infos/images/img_objs.jpg)
 
 <br>
 
