@@ -111,13 +111,13 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
    - Ce trigger insère insère les lignes de la table de jointure RÉMUNÉRATION à chaque insertion dans la table Représentation
    - Répond à la contrainte 'à chaque fois que le temps est = a la date de paiement définie (1er jour de représentation) on ajoute le paiement au budget de la troupe'
    
-<sub> On doit saisir les tickets avant d'inserer une rémunération puisque cette dernière est calculé en fonction d'une estimation des tickets </sub>
+<sub> On doit saisir les tickets avant d'inserer une rémunération puisque cette dernière est calculé en fonction d'une estimation des tickets. </sub>
 
 <br>
 
 * Trigger Shows et Troupes :
    - Trigger qui s'assurer qu'un show est uniquement liée à une et une seule troupe
-   - Répond à la contrainte 'chaque cout de production est lié à un show'
+   - Répond à la contrainte 'chaque cout de production est lié à un show car c'est un cout fixe'
 
 <br>
 
@@ -128,7 +128,7 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 <br>
 
 * Trigger Superposition des Troupes :
-   - Trigger qui s'assure que our 1 soir on a 1 troupe = 1 ou 0 représentation.
+   - Trigger qui s'assure que our 1 soir on a 1 troupe = 1 ou 0 représentation
    - Répond à la contrainte 'une troupe ne joue qu'une représentation par soir'
 
 <br>
@@ -137,7 +137,7 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
    - Trigger qui soustrait les salaires pour 1 journée de travail
    - Répond à la contrainte 'chaque jour de représentation les employés sont budget'
    
-<sub> Calculé grâce au montant global défini dans les représentation </sub>
+<sub> Calculé grâce au montant global défini dans les représentation. </sub>
 
 <br>
 
@@ -150,6 +150,50 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 <br>
 
 * Trigger Budget et Couts de Productions :
+
+   - Ce trigger soustrait les couts de productions le premier soir d'une représentation
+   - Répond à la contrainte 'les couts de productions sont réglés le premier soir de représentation'
+
+<br>
+
+* Trigger Budget et Couts de Déplacement:
+
+   - Ce trigger soustrait les couts de déplacements seulement quand les troupes ne sont pas en locale
+   - Répond à la contrainte 'les couts de déplacement sont réglés le premier soir de représentation'
+
+
+<br>
+
+* Trigger des Dons :
+
+   - Permet d'ajouter les dons au budget en fonction de la fréquence
+   - Répond à la contraintes des dons selon les fréquences et le type d'institution
+   
+<sub> Nous avons choisis de représenté l'entité dons comme un don unique et non comme un donnateur. </sub>
+
+<br> 
+
+* Procédure Ville par période :
+   - Procédure qui affiche les villes d'une troupe pour une période donnée
+
+* Procédure Prix selon le jour :
+   - Cette procédure calcule le prix du billet selon le jour donné
+
+* Procédure Distribution des Prix :
+   - Procédure qui retourne la distribution des prix normal réduit selon la représentation donnée
+ 
+<br>
+
+### Insertion des données
+
+On insère les données dans les différentes tables.
+**Les tables doivent être remplies en respectant les contraintes verticales et horizontales**
+
+On visualise l'insertion des données : 
+
+
+
+
 
 
 
