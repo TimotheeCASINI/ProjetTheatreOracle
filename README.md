@@ -197,7 +197,7 @@ On visualise l'insertion des données :
 - `SELECT * FROM Theatre`
 - `SELECT * FROM Representation`
 
-![Tables Théâtre et Représentation](infos/imgages/img1.jpg)
+![Tables Théâtre et Représentation](./infos/imgages/img1.jpg)
 
 <br>
 
