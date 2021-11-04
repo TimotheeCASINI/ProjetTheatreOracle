@@ -13,6 +13,7 @@ Contenu des dossier :
 - `infos`: 
     * `Rapport.pdf` = Le rapport du projet
     * `Projet.pdf` = Le sujet du projet
+    * `images` = Dossier contenant les screenshots
     
 - `graphs`:
     * `Projet.mdj` = E/R Diagramme (StartUML)
@@ -33,7 +34,7 @@ L'objectif de ce projet est de simuler une base de données de gestion de troupe
 Nous allons créer la base de données, insérer les données et la peupler, puis créer les fonctionnalités nécéssaires à travers différents triggers, fonctions et séléctions.
 
 Le dossier se décompose en 3 dossier :
-* `infos` : contient le sujet et le rapport du projet
+* `infos` : contient le sujet, les screens et le rapport du projet
 * `graphs`: contient les différents graphiques (MCD, MLD, E/R)
 * `scripts` : contient les scripts nécessaire à la réalisation du projet
 
@@ -95,6 +96,8 @@ On créer les 9 tables ci-dessus en veilant à respecter les contraintes de clé
 <br>
 
 ### Triggers et Procédures
+
+Les fonctionnalités sont disponibles depuis le script `triggers.sql` situé dans le dossier *scripts*.
 
 Afin de d'obtenir une bonne gestion de la BDD, on créer différents triggers et procédures afin d'appliquer plusieurs contraintes verticales.
 Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais également assurer le respect des contraintes indiquées par le sujet.
@@ -189,7 +192,10 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 
 ### Insertion des données
 
+Toute les insertions sont disponible depuis le dossier *scripts* dans `insertions.sql`.
+
 On insère les données dans les différentes tables.
+
 **Les tables doivent être remplies en respectant les contraintes verticales et horizontales**
 
 On visualise l'insertion des données : 
@@ -233,5 +239,85 @@ On visualise l'insertion des données :
 ![Tables Spectateur et Dons](infos/images/img6.jpg)
 
 
+<br>
+
+### Test des fonctionnalités
+
+Les tests sont disponible dans `tests.sql` dans le dossier *scripts*.
+
+Maintenant que notre base de données est remplie et nos fonctionnalités operationnelles, nous allons tester les cas extrêmes et s'assurer que les différents traitements sont correctement effectués.
+
+- Test du trigger Shows et Troupes :
+
+   INSERT INTO Representation (ID_representation, duree, date_debut, ID_troupe, ID_show, ID_theatre) VALUES (0011, 1, '2021-04-18', 0004, 0001, 0007)
+   => Le show 1 appartient à la troupe 1 donc cette insertion est interdite
+   
+- Test du trigger Rémunération :
+
+   INSERT INTO Representation (ID_representation, duree, date_debut, ID_troupe, ID_show, ID_theatre) VALUES (0011, 1, '2021-04-18', 0001, 0001, 0007)
+   => On ne peut ajouter des représentation que si les tickets existent (sinon la table RÉMUNÉRATION ne peut pas cacluler le prix de paiment à parti des billets)
+   
+- Test du trigger Superposition des théâtres :
+
+   INSERT INTO Representation (ID_representation, duree, date_debut, ID_troupe, ID_show, ID_theatre) VALUES (0051, 1, '2021-02-22', 0002, 0002, 0002)
+   => Le théâtre 2 acceuille déja une représentation ce soir là donc cette insertion est interdite
+   
+- Test du trigger Superposition des troupes :
+
+   INSERT INTO Representation (ID_representation, duree, date_debut, ID_troupe, ID_show, ID_theatre) VALUES (0051, 1, '2021-01-01', 0001, 0001, 0001)
+   => La troupe 1 joue déja une pièce de théatre ce soir là donc cette insetion est interdite
+   
+- Test du trigger Salaires et Représentation :
+
+   SELECT salaires FROM Representation
+   => Le montant des salaires globales c'est correctement icrémenté
+   
+- Test de la procédure des Villes par Troupe :
+
+   EXECUTE ville_by_troupe(0001, '2021-01-01', '2021-02-01')
+   => Procédure stockée permettant d'obtenir les villes d'une troupe pour une période donnée
+   
+- Test de la procédure du prix selon le jours
+
+   EXECUTE price_by_day('2021-02-22')
+   => On test la procédure et on obtient le prix du ticket au jour
+   
+- Test de la procédure de distribution des prix :
+
+   EXECUTE price_by_show(0001)
+   => Cette procédure retourne la distribution selon les 2 types de prix
+   
+
+On visualise désormais les modification des budgets selon gestion des coûts, la gestion des tickets, la gestion des dons par rapport à la simulation du temps.
+
+<br>
+
+- `SELECT * FROM Troupe`
+- `SELECT * FROM Theatre`
+
+![Table Troupe et Théâtre](infos/images/img11.jpg)
+
+<br>
+
+On incrémente la table Date afin de simuler le temps :
+
+   - `INSERT date_theatre VALUES ('2021-01-08')`
+   - `UPDATE date_theatre SET date_actuelle = '2021-01-07' WHERE date_actuelle = '2021-01-08'`
+
+<br>
+
+- `SELECT * FROM Troupe`
+- `SELECT * FROM Theatre`
+
+![Table Troupe et Théâtre](infos/images/img12.jpg)
+
+<br>
 
 
+### Conclusion
+
+Nous avons utilisé différentes notions vues en cours au travers de ce projet.
+Certaines difficultés on été rencontrées au niveau de la nuance netre Représentation et Théâtre.
+En effet, nous avons eu du mal à définir la gestion du budget entre les différents couts selon un théâtre et une pièce de théâtre.
+
+Certaines améliorations restent à faire, nottament en ce qui concernent les cas extrême des triggers/procédures et les cas d'update/delete.
