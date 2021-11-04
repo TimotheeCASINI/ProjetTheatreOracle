@@ -106,6 +106,7 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 * Trigger pour la Rémunération :
    - Ce trigger insère insère les lignes de la table de jointure RÉMUNÉRATION à chaque insertion dans la table Représentation. 
    - Répond à la contrainte 'à chaque fois que le temps est = a la date de paiement définie (1er jour de représentation) on ajoute le paiement au budget de la troupe'
+   
 <sub> On doit saisir les tickets avant d'inserer une rémunération puisque cette dernière est calculé en fonction d'une estimation des tickets </sub>
 
 
@@ -127,12 +128,14 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 * Trigger Salaires et Budget :
    - Trigger qui soustrait les salaires pour 1 journée de travail
    - Répond à la contrainte 'chaque jour de représentation les employés sont budget'
+   
 <sub> Calculé grâce au montant global défini dans les représentation </sub>
 
 
 * Trigger Budget et Rémunération :
    - Ce trigger permet d'ajouter au budget la rémunération pour 1 jour donné.
    - Répond à la contrainte 'le theatre doit payer la troupe qui a effectuer le show'
+   
 <sub> Ce trigger fonctionne de pair avec celui pour la Rémunération car à chaque fois que la table temps prend la valeur de la date de paiement, les troupes sont payées. </sub>
 
 * Trigger Budget et Couts de Productions :
