@@ -49,6 +49,7 @@ Les contraintes sont les suivantes :
 - Gestion des troupes et des représentations (1 troupe ne peut pas assurer 2 représentation à la fois)
 - Gestion des pièce de théâtre et du théâtre(1 théâtre ne peut pas acceuilir + d'une pièce de théâtre à la fois)
 
+<br> 
 
 ### Création du modèle relationnel
 
@@ -75,6 +76,7 @@ On trouve ainsi le modèle relationnel suivant :
 
 - REMUNERER(***id_theatre***, ***id_troupe***, date_paiement, total)
 
+<br>
 
 ### Création des tables
 
@@ -90,6 +92,7 @@ On créer les 9 tables ci-dessus en veilant à respecter les contraintes de clé
 - Création d'une table de temps pour la simulation du temps
 - Création d'une table temporelle afin de stocker les troupes et l'argent généré pour un jour donné
 
+<br>
 
 ### Triggers et Procédures
 
@@ -191,9 +194,49 @@ On insère les données dans les différentes tables.
 
 On visualise l'insertion des données : 
 
+- `SELECT * FROM Theatre`
+- `SELECT * FROM Representation`
 
+![Tables Théâtre et Représentation](imgages/img1.jpg)
 
+<br>
 
+- `SELECT * FROM Piece_Theatre`
+- `SELECT * FROM Troupe`
+
+![Tables Pièce de Théâtre et Troupe](imgages/img2.jpg)
+
+<br>
+
+- `SELECT * FROM Piece_Theatre`
+- `SELECT * FROM Troupe`
+
+![Tables Pièce de Théâtre et Troupe](imgages/img2.jpg)
+
+<br>
+
+- `SELECT * FROM Ticket`
+
+![Table Ticket](imgages/img3.jpg)
+
+<br>
+
+- `SELECT * FROM REMUNERER`
+
+![Table de jonction REMUNERER](imgages/img4.jpg)
+
+<br>
+
+- `SELECT * FROM Employe`
+
+![Table Employé](imgages/img5.jpg)
+
+<br>
+
+- `SELECT * FROM Spectateur`
+- `SELECT * FROM Dons`
+
+![Tables Spectateur et Dons](imgages/img6.jpg)
 
 
 
