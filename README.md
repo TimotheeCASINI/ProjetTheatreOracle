@@ -115,18 +115,18 @@ Cela va permettre de mettre en oeuvre plusieurs traitements sur nos tables mais 
 
 
 * Trigger Superposition des Théâtres :
-- Trigger qui s'assure que pour 1 soir on a 1 théâtre = 1 ou 0 représentation
-- Répond à la contrainte 'un théâtre n'acceuille qu'une représentation par soir'
+   - Trigger qui s'assure que pour 1 soir on a 1 théâtre = 1 ou 0 représentation
+   - Répond à la contrainte 'un théâtre n'acceuille qu'une représentation par soir'
 
 
 * Trigger Superposition des Troupes :
-- Trigger qui s'assure que our 1 soir on a 1 troupe = 1 ou 0 représentation.
-- Répond à la contrainte 'une troupe ne joue qu'une représentation par soir'
+   - Trigger qui s'assure que our 1 soir on a 1 troupe = 1 ou 0 représentation.
+   - Répond à la contrainte 'une troupe ne joue qu'une représentation par soir'
 
 
 * Trigger Salaires et Budget :
-- Trigger qui soustrait les salaires pour 1 journée de travail
-- Répond à la contrainte 'chaque jour de représentation les employés sont budget'
+   - Trigger qui soustrait les salaires pour 1 journée de travail
+   - Répond à la contrainte 'chaque jour de représentation les employés sont budget'
 <small> Calculé grâce au montant global défini dans les représentation </small>
 
 
